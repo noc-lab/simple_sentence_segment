@@ -5,7 +5,7 @@ files = ["model/*"]
 package_list = ['scikit-learn']
 
 setup(
-    name='sentence_segment',
+    name='simple_sentence_segment',
     version='0.1.0',
     author="Henghui Zhu",
     url='None',

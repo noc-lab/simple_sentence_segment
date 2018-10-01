@@ -1,1 +1,1 @@
-recursive-include sentence_segment/model *
+recursive-include simple_sentence_segment/model *
