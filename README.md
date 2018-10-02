@@ -4,7 +4,19 @@ This is a simple sentence segment tools based on a decision tree. It is designed
 tasks such as reports with fix width line breaks.
 
 
-Example:
+## Install
+
+Use the following command
+```bash
+pip install git+https://github.com/zhhtc200/simple_sentence_segment.git
+```
+Alternatively, one can download the latest release in the [release page](https://github.com/zhhtc200/simple_sentence_segment/releases) and run
+```bash
+pip install simple_sentence_segment-0.1.1.tar.gz
+```
+
+
+## Usages
 
 ```python
 from simple_sentence_segment import sentence_segment
@@ -63,6 +75,8 @@ The output is
 '3.'
 'Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.'
 ```
+
+## Feedback
 
 The model is trained based on some reports shown as examples using some hand-craft rules by the author. Feedback is 
 always welcome so that the author can add more rules in generating training examples and have a better model.
