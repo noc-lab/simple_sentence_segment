@@ -13,6 +13,6 @@ setup(
     packages=['simple_sentence_segment', ],
     package_data={'simple_sentence_segment': files},
     license='None',
-    description="A sentence segmentation tools based on ML.",
+    description="A simple sentence segmentation tool based on decision tree.",
     install_requires=package_list,
 )

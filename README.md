@@ -1,7 +1,7 @@
-# A simple sentence segment tools
+# A simple sentence segmentation tool
 
-This is a simple sentence segment tools based on a decision tree. It is designed for some complicated sentence segment
-tasks such as reports with fix width line breaks.
+This is a simple sentence segmentation tools based on a decision tree. It is designed for some complicated sentence 
+segmentation tasks such as reports with fix width line breaks.
 
 
 ## Install
