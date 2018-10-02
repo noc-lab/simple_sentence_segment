@@ -1,11 +1,19 @@
+from six.moves import range
+from six.moves import cPickle
+
+import six
 import os
-import pickle
 import re
 import numpy as np
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-cls = pickle.load(open(os.path.join(dir_path, 'model/cls.pkl'), 'rb'))
+if six.PY3:
+    cls = cPickle.load(open(os.path.join(dir_path, 'model/cls.pkl'), 'rb'), encoding='latin1')
+elif six.PY2:
+    cls = cPickle.load(open(os.path.join(dir_path, 'model/cls.pkl'), 'rb'))
+else:
+    raise RuntimeError
 
 char_list = ['x', 'X', 'S', '8', '\n', '.', ':', '-', '*',
              ')', '?', '(', ',', '/', '#', '%', '\t', '+',

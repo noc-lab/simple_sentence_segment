@@ -2,11 +2,11 @@ from setuptools import setup
 
 files = ["model/*"]
 
-package_list = ['scikit-learn']
+package_list = ['scikit-learn', 'six']
 
 setup(
     name='simple_sentence_segment',
-    version='0.1.0',
+    version='0.1.1',
     author="Henghui Zhu",
     url='None',
     author_email="henghuiz@bu.edu",
