@@ -8,7 +8,7 @@ segmentation tasks such as reports with fix width line breaks.
 
 Use the following command
 ```bash
-pip install git+https://github.com/zhhtc200/simple_sentence_segment.git
+pip install git+https://github.com/noc-lab/simple_sentence_segment.git
 ```
 Alternatively, one can download the latest release in the [release page](https://github.com/zhhtc200/simple_sentence_segment/releases) and run
 ```bash
