@@ -6,7 +6,7 @@ package_list = ['scikit-learn', 'six']
 
 setup(
     name='simple_sentence_segment',
-    version='0.1.1',
+    version='0.1.2',
     author="Henghui Zhu",
     url='None',
     author_email="henghuiz@bu.edu",
