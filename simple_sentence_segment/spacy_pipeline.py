@@ -9,7 +9,9 @@ class SentenceSegmenter(object):
         for d in doc:
             d.is_sent_start = False
         for s, _ in sentence_segment(str(doc)):
+            print(s)
             for token in doc:
-                if token.idx <= s < token.idx + len(token):
+                if token.idx >= s:
                     token.is_sent_start = True
+                    break
         return doc

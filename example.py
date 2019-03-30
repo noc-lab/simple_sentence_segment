@@ -17,14 +17,14 @@ a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
 Summary:
 
 1. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-Aenean vulputate eleifend tellus.
+Aenean vulputate eleifend tellus. Left vs. right. 
  
 2. Aenean leo ligula, porttitor eu, consequat
 vitae, eleifend ac, enim. 
 
 3. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus."""
 
-    for s, t in sentence_segment(sample_text):
+    for s, t in sentence_segment(sample_text, exclusive_phrse=['vs.']):
         print(repr(sample_text[s:t].strip()))
 
 

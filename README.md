@@ -23,10 +23,8 @@ pip install simple_sentence_segment-0.1.2.tar.gz
 ```python
 from simple_sentence_segment import sentence_segment
 
-sample_text = """Admission Date:  1-1-01      
-Discharge Date:  1-1-01
-Date of Birth: 1-1-01  
-Sex: F
+sample_text = """Admission Date:  1-1-01               Discharge Date:  1-1-01
+Date of Birth: 1-1-01        Sex:  F
 
 HISTORY OF PRESENT ILLNESS: Lorem ipsum dolor sit amet, consectetuer 
 adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum 
@@ -40,9 +38,11 @@ a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
 
 Summary:
 
-1. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+1. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+Aenean vulputate eleifend tellus. Left vs. right. 
  
-2. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. 
+2. Aenean leo ligula, porttitor eu, consequat
+vitae, eleifend ac, enim. 
 
 3. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus."""
 
@@ -56,7 +56,8 @@ The output is
 'Discharge Date:  1-1-01'
 'Date of Birth:'
 '1-1-01'
-'Sex: F'
+'Sex:'
+'F'
 'HISTORY OF PRESENT ILLNESS: Lorem ipsum dolor sit amet, consectetuer \nadipiscing elit.'
 'Aenean commodo ligula eget dolor.'
 'Aenean massa.'
@@ -72,8 +73,9 @@ The output is
 'Cras dapibus.'
 'Vivamus elementum semper nisi.'
 'Aenean vulputate eleifend tellus.'
+'Left vs. right.'
 '2.'
-'Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.'
+'Aenean leo ligula, porttitor eu, consequat\nvitae, eleifend ac, enim.'
 '3.'
 'Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.'
 ```
