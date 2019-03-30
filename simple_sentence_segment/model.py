@@ -108,10 +108,10 @@ def get_span(eos_list, text):
   return spans
 
 
-def sentence_segment(text, exclusive_phrse=None):
-  if exclusive_phrse is None:
-    exclusive_phrse = DEFAULT_EXCLUSIVE
-  eos_id_list = get_possible_eos(text, exclusive_phrse)
+def sentence_segment(text, exclusive_phrase=None):
+  if exclusive_phrase is None:
+    exclusive_phrase = DEFAULT_EXCLUSIVE
+  eos_id_list = get_possible_eos(text, exclusive_phrase)
 
   X = []
 
