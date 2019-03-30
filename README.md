@@ -46,7 +46,7 @@ vitae, eleifend ac, enim.
 
 3. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus."""
 
-for s, t in sentence_segment(sample_text):
+for s, t in sentence_segment(sample_text, exclusive_phrse=['vs.']):
     print(repr(sample_text[s:t].strip()))
 ```
 
