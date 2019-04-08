@@ -1,5 +1,7 @@
 # A simple sentence segmentation tool
 
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 This is a simple sentence segmentation tools based on a decision tree. It is designed for some complicated sentence 
 segmentation tasks such as reports with fix width line breaks.
 
