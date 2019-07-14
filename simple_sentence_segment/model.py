@@ -1,31 +1,29 @@
 from six.moves import range
-from six.moves import cPickle
 
 import six
 import os
 import re
 import numpy as np
+import onnxruntime as rt
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
+sess = rt.InferenceSession(os.path.join(dir_path, 'model/cls.onnx'))
+input_name = sess.get_inputs()[0].name
+label_name = sess.get_outputs()[0].name
 
-if six.PY3:
-  cls = cPickle.load(open(os.path.join(dir_path, 'model/cls.pkl'), 'rb'), encoding='latin1')
-elif six.PY2:
-  cls = cPickle.load(open(os.path.join(dir_path, 'model/cls.pkl'), 'rb'))
-else:
-  raise RuntimeError
-
-char_list = ['x', 'X', 'S', '8', '\n', '.', ':', '-', '*',
-             ')', '?', '(', ',', '/', '#', '%', '\t', '+',
-             ';', '=', '>', "'", '"', '&', ']', '<']
+char_list = [
+    'x', 'X', 'S', '8', '\n', '.', ':', '-', '*', ')', '?', '(', ',', '/', '#',
+    '%', '\t', '+', ';', '=', '>', "'", '"', '&', ']', '<'
+]
 char2id = {item: item_id for item_id, item in enumerate(char_list)}
 
 DEFAULT_EXCLUSIVE = ['M.D.', 'Dr.', 'vs.']
 
 
 def get_possible_eos(text, exclusive_phrase):
-  possible_eos_re = [' [A-Z]', '\.', '\?', '\n', '\t', '\)',
-                     '\]', '\}', '\*', '"', ':']
+  possible_eos_re = [
+      ' [A-Z]', '\.', '\?', '\n', '\t', '\)', '\]', '\}', '\*', '"', ':'
+  ]
   eos_re = re.compile('|'.join(possible_eos_re))
   eos = set()
   for eos_find in eos_re.finditer(text):
@@ -33,7 +31,7 @@ def get_possible_eos(text, exclusive_phrase):
 
     exclusive = False
     for phrase in exclusive_phrase:
-      if text[start_id - len(phrase) + 1: start_id + 1] == phrase:
+      if text[start_id - len(phrase) + 1:start_id + 1] == phrase:
         exclusive = True
         break
     if not exclusive:
@@ -125,8 +123,8 @@ def sentence_segment(text, exclusive_phrase=None):
   X = np.array(X, dtype=int)
 
   X = one_hot_encoder(X)
-  y = cls.predict(X)
 
+  y = sess.run([label_name], {input_name: X.astype(np.float32)})[0]
   valid_eos = [x_ for x_, y_ in zip(eos_id_list, y) if y_ == 1]
 
   all_span = get_span(valid_eos, text)
